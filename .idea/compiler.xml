@@ -9,5 +9,6 @@
         <module name="INTE_Projekt" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>

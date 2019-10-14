@@ -1,7 +1,10 @@
 package RogueM;
 
 public class Player {
-    public static void main(String args[]){
-        System.out.println("Hello World");
+    public void health(){
+        int hp = 100;
+        if(hp<=0){
+            //die
+        }
     }
 }
