@@ -10,7 +10,9 @@ public class Player {
         this.name = name;
         this.health = health;
     }
+    public void hp(){
 
+    }
 
 
 }
