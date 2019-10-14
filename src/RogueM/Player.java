@@ -8,10 +8,12 @@ public class Player {
         this.name = name;
         this.health = health;
     }
-
-
-
-    public String getName() {
-        return name;
+    public void Health(String name){
+        if(health<=0){
+            //die
+        }
     }
+
+
+
 }
