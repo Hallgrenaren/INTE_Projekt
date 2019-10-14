@@ -1,5 +1,0 @@
-package RogueM;
-
-class TemporarTest {
-
-}
