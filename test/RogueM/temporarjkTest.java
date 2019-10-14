@@ -1,0 +1,5 @@
+package RogueM;
+
+class TemporarTest {
+
+}
