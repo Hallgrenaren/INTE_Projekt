@@ -1,7 +1,10 @@
 package RogueM;
 
 public class Player {
-    public static void main(String args[]){
-        System.out.println("Hello World");
+    private String name = "Martin";
+
+
+    public String getName() {
+        return name;
     }
 }
