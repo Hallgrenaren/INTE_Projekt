@@ -1,5 +1,7 @@
 package RogueM;
 
+import java.util.ArrayList;
+
 public class Character {
     private String name;
     private int health;
@@ -10,9 +12,11 @@ public class Character {
 
 
     public Character(String name) {
+        this.name = name;
         this.health = 100;
         this.speed = 10;
     }
+
 
     public int getHealth() {
         return health;
