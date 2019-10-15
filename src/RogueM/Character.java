@@ -1,6 +1,5 @@
 package RogueM;
 import java.util.ArrayList;
-
 abstract class Character {
     private String name;
     private int health;
