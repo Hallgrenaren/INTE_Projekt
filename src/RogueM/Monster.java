@@ -50,4 +50,12 @@ public class Monster {
         return name;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public Position getPosition(){
+        return position;
+    }
+
 }

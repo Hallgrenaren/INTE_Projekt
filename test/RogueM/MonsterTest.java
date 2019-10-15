@@ -7,9 +7,33 @@ import static org.junit.jupiter.api.Assertions.*;
 class MonsterTest {
 
     @Test
-    public void testConstructorValidValues() {
+    public void testConstructorValidName() {
         Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
         assertEquals("Zombie", p.getName());
+    }
+
+    @Test
+    public void testConstructorValidHealth() {
+        Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
+        assertEquals(100, p.getHealth());
+    }
+
+    @Test
+    public void testConstructorValidSpeed() {
+        Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
+        assertEquals(500, p.getSpeed());
+    }
+
+    @Test
+    public void testConstructorValidDamage() {
+        Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
+        assertEquals(100, p.getDamage());
+    }
+
+    @Test
+    public void testConstructorValidPosition() {
+        Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
+        assertEquals(new Position(0,0), p.getPosition());
     }
 
     @Test
