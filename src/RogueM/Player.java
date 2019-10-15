@@ -3,8 +3,8 @@ package RogueM;
 public class Player extends Character{
     String pClass;
 
-    public Player(String name, int health, int speed, int damage, int xPos, int yPos, String pClass){
-        super(name, 150, speed, damage, xPos, yPos);
+    public Player(String name, int health, int speed, int damage, Position pos, String pClass){
+        super(name, 150, speed, damage, pos);
         this.pClass = pClass;
     }
 
