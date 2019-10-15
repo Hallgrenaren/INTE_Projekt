@@ -6,6 +6,7 @@ abstract class Character {
     private int health;
     private int speed;
     private int damage;
+    private Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Character(String name, int health, int speed, int damage) {
