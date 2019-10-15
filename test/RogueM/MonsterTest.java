@@ -27,13 +27,13 @@ class MonsterTest {
     @Test
     public void testConstructorValidDamage() {
         Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
-        assertEquals(100, p.getDamage());
+        assertEquals(10, p.getDamage());
     }
 
     @Test
     public void testConstructorValidPosition() {
         Monster p = new Monster("Zombie", 100,500,10,new Position(0,0));
-        assertEquals(new Position(0,0), p.getPosition());
+        assert(p.getPosition().getX()==0&&p.getPosition().getY()==0);
     }
 
     @Test
