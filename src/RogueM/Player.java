@@ -8,6 +8,10 @@ public class Player extends Character{
         this.pClass = pClass;
     }
 
+    public void die(){
+        //GAME OVER
+    }
+
     /*private void setClassVariables(){
         if(pClass.equals("Warrior")) {
             int hp = getHealth();

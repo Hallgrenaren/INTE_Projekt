@@ -8,11 +8,22 @@ abstract class Character {
     private Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
-    public Character(String name, int health, int speed, int damage) {
+    public Character(String name, int health, int speed, int damage, int xPos, int yPos) {
         this.name = name;
         this.health = health;
         this.speed = speed;
         this.damage = damage;
+    }
+
+    public void takeDamage(int damage){
+        this.health -= damage;
+        if(health<=0){
+            if(this instanceof Monster){
+                ((Monster) this).die();
+            }else {
+                ((Player)this).die();
+            }
+        }
     }
 
     public int getHealth() {
