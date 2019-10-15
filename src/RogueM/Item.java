@@ -16,4 +16,14 @@ public class Item {
     public void drop(Position pos){
         //Add to map at position pos
     }
+
+    public int getHealth(){
+      return health;
+    }
+    public int getSpeed(){
+        return speed;
+    }
+    public int getDamage(){
+        return damage;
+    }
 }
