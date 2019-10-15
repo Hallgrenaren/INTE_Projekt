@@ -9,7 +9,7 @@ class PlayerTest {
     @Test
     void testConstructorValidValues() {
 
-        Character p = new Character("Steve");
+        Player p = new Player("Steve");
 
         assertEquals("Steve", p.getName());
         assertEquals(100, p.getHealth());
