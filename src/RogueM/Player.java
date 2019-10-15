@@ -1,26 +1,18 @@
 package RogueM;
 
-public class Player {
-    private String name;
-    private int health;
-    private int strength;
-    private int no;
+public class Player extends Character{
+    String pClass;
 
-    public String getName() {
-        return name;
+    public Player(String name, int health, int speed, int damage, int xPos, int yPos, String pClass){
+        super(name, 150, speed, damage, xPos, yPos);
+        this.pClass = pClass;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Player(String name, int health){
-        this.name = name;
-        this.health = health;
-    }
-    public void hp(){
-
-    }
-
+    /*private void setClassVariables(){
+        if(pClass.equals("Warrior")) {
+            int hp = getHealth();
+            hp += 50;
+        }
+    }*/
 
 }
