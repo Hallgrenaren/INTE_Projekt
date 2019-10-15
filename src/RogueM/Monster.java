@@ -23,8 +23,14 @@ public class Monster {
         }
     }
 
+    public void updateStatsFromItems(Item item){
+        this.health += item.getHealth();
+        this.damage += item.getDamage();
+    }
+
     public void addItem(Item item){
         inventory.add(item);
+        updateStatsFromItems(item);
     }
     public void die(){
         //Remove from monster list
