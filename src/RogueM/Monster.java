@@ -5,15 +5,13 @@ import java.util.ArrayList;
 public class Monster {
     private String name;
     private int health;
-    private int speed;
     private int damage;
     public Position position;
     public ArrayList<Item> inventory = new ArrayList<Item>();
 
-    public Monster(String name, int health, int speed, int damage, Position pos) {
+    public Monster(String name, int health, int damage, Position pos) {
         this.name = name;
         this.health = health;
-        this.speed = speed;
         this.damage = damage;
         this.position = pos;
     }
@@ -40,10 +38,6 @@ public class Monster {
 
     public int getHealth() {
         return health;
-    }
-
-    public int getSpeed() {
-        return speed;
     }
 
     public String getName() {
