@@ -8,7 +8,6 @@ class PlayerTest {
 
     @Test
     void testConstructorValidValues() {
-
         Player p = new Player("Steve");
 
         assertEquals("Steve", p.getName());
