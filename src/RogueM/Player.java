@@ -11,13 +11,20 @@ public class Player {
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private String pClass;
 
-    public Player(String name, int health, int speed, int damage, Position pos, String pClass){
+    public Player(String name, String pClass){
         this.name = name;
-        this.health = health;
-        this.speed = speed;
-        this.damage = damage;
-        this.position = pos;
         this.pClass = pClass;
+        if(pClass.equals("Warrior")) {
+            this.health = 200;
+            this.speed = 10;
+            this.damage = 50;
+        }
+        else if(pClass.equals("Assassin")) {
+            this.health = 100;
+            this.speed = 15;
+            this.damage = 100;
+        }
+        this.position = new Position(0,0);
     }
 
     public void die(){
