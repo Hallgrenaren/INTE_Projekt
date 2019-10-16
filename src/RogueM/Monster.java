@@ -1,13 +1,14 @@
 package RogueM;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Monster implements Comparable<Monster> {
     private String name;
     private int health;
     private int damage;
-    public Position position;
-    public ArrayList<Item> inventory = new ArrayList<Item>();
+    private Position position;
+    private ArrayList<Item> inventory = new ArrayList<Item>();
 
     public Monster(String name, int health, int damage, Position pos) {
         this.name = name;
@@ -21,6 +22,10 @@ public class Monster implements Comparable<Monster> {
         if(health<=0){
             die();
         }
+    }
+
+    public List<Item> getInventory(){
+        return inventory;
     }
 
     public void updateStatsFromItems(Item item){

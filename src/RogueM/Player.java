@@ -1,6 +1,7 @@
 package RogueM;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private String name;
@@ -31,12 +32,37 @@ public class Player {
         //GAME OVER
     }
 
+    public void move(){
+        //method for movement
+    }
+
+    public void takeDamage(int damage){
+        this.health -= damage;
+        if(health<=0){
+            die();
+        }
+    }
+
+    public void updateStatsFromItems(Item item){
+        this.health += item.getHealth();
+        this.damage += item.getDamage();
+    }
+
+    public void addItem(Item item){
+        inventory.add(item);
+        updateStatsFromItems(item);
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
+    }
+
+    public List<Item> getInventory(){
+        return inventory;
     }
 
     public void setHealth(int health) {

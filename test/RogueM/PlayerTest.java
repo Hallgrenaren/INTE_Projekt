@@ -28,4 +28,25 @@ class PlayerTest {
         assertEquals(15, p.getSpeed());
     }
 
+    @Test
+    public void testPlayerTakeDamage(){
+        Player p = new Player("Zhasam", "Warrior");
+        p.takeDamage(50);
+        assert(p.getHealth()==150);
+    }
+
+    @Test
+    public void testPlayerTakeDamage2(){
+        Player p = new Player("Zhasam", "Assassin");
+        p.takeDamage(50);
+        assert(p.getHealth()==50);
+    }
+
+    @Test
+    public void testPlayerAddItem(){
+        Player p = new Player("Zhasam", "Warrior");
+        p.addItem(new Item("Axe",0,50,0));
+        assert(!p.getInventory().isEmpty());
+    }
+
 }

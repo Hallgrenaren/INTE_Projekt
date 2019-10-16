@@ -55,7 +55,7 @@ class MonsterTest {
     public void testMonsterAddItem(){
         Monster p = new Monster("Zombie", 100,10,new Position(0,0));
         p.addItem(new Item("Axe",0,50,0));
-        assert(!p.inventory.isEmpty());
+        assert(!p.getInventory().isEmpty());
     }
     /*@Test
     public void testMonsterDie(){
