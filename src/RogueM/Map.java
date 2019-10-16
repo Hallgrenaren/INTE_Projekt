@@ -17,14 +17,25 @@ public class Map {
         }
         items.add(item);
         itemsInPosition.put(position,items);
-        
-
     }
 
+    public void removeItem(Position position, Item item){
+        if(itemsInPosition.containsKey(position)) {
+            Set<Item> items = itemsInPosition.get(position);
+            items.remove(item);
+            itemsInPosition.put(position, items);
 
+        }
+    }
 
     public void addMonster(Position position, Monster monster){
         monsterInPosition.put(position, monster);
+
+    }
+
+    public void removeMonster(Position position){
+        if(monsterInPosition.containsKey(position))
+            monsterInPosition.remove(position);
 
     }
 
@@ -38,6 +49,5 @@ public class Map {
 
         return items;
     }
-
 
 }
