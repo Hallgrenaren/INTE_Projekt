@@ -41,7 +41,7 @@ public class Monster implements Comparable<Monster> {
         //Remove from monster list
 
         for(Item item : inventory){  //Drop items
-        item.drop(this.position);
+        item.drop(this.getPosition());
         }
 
         //Gone from map?

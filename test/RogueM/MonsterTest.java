@@ -26,15 +26,39 @@ class MonsterTest {
 
     @Test
     public void testConstructorValidPosition() {
-        Monster p = new Monster("Zombie", 100,10,new Position(0,0));
-        assert(p.getPosition().getX()==0&&p.getPosition().getY()==0);
+        Monster p = new Monster("Zombie", 100,10,new Position(1,1));
+        assert(p.getPosition().getX()==1&&p.getPosition().getY()==1);
+    }
+
+    @Test
+    public void testConstructorInvalidPositionX1() {
+        Monster p = new Monster("Zombie", 100,10,new Position(0,1));
+        assert(p.getPosition().getX()==1&&p.getPosition().getY()==1);
+    }
+
+    @Test
+    public void testConstructorInvalidPositionX2() {
+        Monster p = new Monster("Zombie", 100,10,new Position(12,1));
+        assert(p.getPosition().getX()==10&&p.getPosition().getY()==1);
+    }
+
+    @Test
+    public void testConstructorInvalidPositionY1() {
+        Monster p = new Monster("Zombie", 100,10,new Position(1,0));
+        assert(p.getPosition().getX()==1&&p.getPosition().getY()==1);
+    }
+
+    @Test
+    public void testConstructorInvalidPositionY2() {
+        Monster p = new Monster("Zombie", 100,10,new Position(1,14));
+        assert(p.getPosition().getX()==1&&p.getPosition().getY()==10);
     }
 
     @Test
     public void testMonsterTakeDamage(){
-    Monster p = new Monster("Zombie", 100,10,new Position(0,0));
-    p.takeDamage(50);
-    assert(p.getHealth()==50);
+        Monster p = new Monster("Zombie", 100,10,new Position(0,0));
+        p.takeDamage(50);
+        assert(p.getHealth()==50);
     }
 
     @Test
