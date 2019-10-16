@@ -6,29 +6,37 @@ import java.util.Set;
 
 public class Map {
 
-    private HashMap<Position, Set<Monster>> monstersInPosition = new HashMap<>();
+    private HashMap<Position, Monster> monsterInPosition = new HashMap<>();
     private HashMap<Position, Set<Item>> itemsInPosition = new HashMap<>();
 
     public void addItem(Position position, Item item){
         Set<Item> items = itemsInPosition.get(position);
-        if (itemsInPosition == null) {
+        if (itemsInPosition.get(position) == null) {
             items = new HashSet<Item>();
             itemsInPosition.put(position, items);
         }
         items.add(item);
         itemsInPosition.put(position,items);
+        
 
     }
 
-    public void addMonster(Position position, Monster monster){
-        Set<Monster> monsters = monstersInPosition.get(position);
-        if (monstersInPosition == null) {
-            monsters = new HashSet<Monster>();
-            monstersInPosition.put(position, monsters);
-        }
-        monsters.add(monster);
-        monstersInPosition.put(position,monsters);
 
+
+    public void addMonster(Position position, Monster monster){
+        monsterInPosition.put(position, monster);
+
+    }
+
+    public Monster getMonster(Position position){
+
+        return monsterInPosition.get(position);
+    }
+
+    public HashMap<Position, Set<Item>> getItems(){
+        HashMap<Position, Set<Item>> items = new HashMap<Position, Set<Item>>(itemsInPosition);
+
+        return items;
     }
 
 
