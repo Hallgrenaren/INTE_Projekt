@@ -20,6 +20,7 @@ class MapTest {
         assertEquals(map.getMonster(monster.getPosition()).getName(),"Goblin" );
 
     }
+
     @Test
     void testAddItems(){
         Map map = new Map();

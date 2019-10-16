@@ -78,12 +78,4 @@ public class Player {
     public String getpClass() {
         return pClass;
     }
-
-    /*private void setClassVariables(){
-        if(pClass.equals("Warrior")) {
-            int hp = getHealth();
-            hp += 50;
-        }
-    }*/
-
 }
