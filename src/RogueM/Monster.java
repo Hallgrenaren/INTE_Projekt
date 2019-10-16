@@ -2,7 +2,7 @@ package RogueM;
 
 import java.util.ArrayList;
 
-public class Monster {
+public class Monster implements Comparable<Monster> {
     private String name;
     private int health;
     private int damage;
@@ -58,4 +58,29 @@ public class Monster {
         return position;
     }
 
+    @Override
+    public int hashCode(){
+        return 31 * (name.hashCode() + getHealth() + getDamage() + getPosition().getY() + getPosition().getX());
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o==this){
+            return true;
+        }
+        if(!(o instanceof Monster)){
+            return false;
+        }
+        Monster m = (Monster)o;
+        return this.name == m.name && this.health == m.health && this.damage == m.damage && this.position.getX() == m.position.getX() && this.position.getY() == m.position.getY();
+    }
+
+    public int compareTo(Monster monster) {
+        if(monster.position.getY()==this.position.getY()&&monster.position.getX()==this.position.getX())
+            return 0;//same
+        if((monster.position.getX()+monster.position.getY())>(this.position.getX()+this.position.getY()))
+            return 1;//monster greater than this
+        else
+            return -1;
+    }
 }

@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class Map {
 
-    private HashMap<Position, Monster> monsterInPosition = new HashMap<>();
-    private HashMap<Position, Set<Item>> itemsInPosition = new HashMap<>();
+    private HashMap<Position, Monster> monsterInPosition = new HashMap<Position, Monster>();
+    private HashMap<Position, Set<Item>> itemsInPosition = new HashMap<Position, Set<Item>>();
 
     public void addItem(Position position, Item item){
         Set<Item> items = itemsInPosition.get(position);
