@@ -76,4 +76,18 @@ class MapTest {
 
     }
 
+    @Test
+     void monsterSamePosition(){
+        Map map = new Map();
+        Position pos = new Position(2,2);
+        Monster m1 = new Monster("Orc",1,1,pos);
+        Monster m2 = new Monster("Goblin",1,1,pos);
+
+        map.addMonster(pos,m1);
+        map.addMonster(pos,m2);
+
+        assertEquals(map.getMonster(pos),m1);
+
+    }
+
 }
