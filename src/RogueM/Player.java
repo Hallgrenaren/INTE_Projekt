@@ -1,5 +1,6 @@
 package RogueM;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +33,18 @@ public class Player {
         //GAME OVER
     }
 
-    public void move(){
-        //method for movement
+    //Första Upplaga av movement. ta hänsyn till graphic, eller räcker detta? Göra command line för att testa?
+    public void move(KeyEvent e){
+        int key = e.getKeyCode();
+        if (key == KeyEvent.VK_W){
+            position.setY(position.getY() - 1);
+        } else if (key == KeyEvent.VK_A){
+            position.setX(position.getX() - 1);
+        } else if (key == KeyEvent.VK_S){
+            position.setY(position.getY() + 1);
+        } else if (key == KeyEvent.VK_D){
+            position.setX(position.getX() + 1);
+        }
     }
 
     public void takeDamage(int damage){

@@ -8,14 +8,14 @@ public class Position {
 
 
     public Position(int x, int y) {
-        if (x < 1)
-            x = 1;
-        else if (x > 10)
-            x = 10;
-        if (y < 1)
-            y = 1;
-        else if (y > 10)
-            y = 10;
+        if (x < 0)
+            x = 0;
+        else if (x > 9)
+            x = 9;
+        if (y < 0)
+            y = 0;
+        else if (y > 9)
+            y = 9;
         this.x = x;
         this.y = y;
 
@@ -25,9 +25,13 @@ public class Position {
         return x;
     }
 
+    public void setX(int x) {this.x = x; }
+
     public int getY() {
         return y;
     }
+
+    public void setY(int y) {this.y = y; }
 
     @Override
     public int hashCode() {
