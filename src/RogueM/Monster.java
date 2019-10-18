@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Monster implements Comparable<Monster> {
+    static private int monsterCount=0;
+    private int ID;
     private String name;
     private int health;
     private int damage;
@@ -15,6 +17,8 @@ public class Monster implements Comparable<Monster> {
         this.health = health;
         this.damage = damage;
         this.position = pos;
+        ID = monsterCount;
+        monsterCount += 1;
     }
 
     public void takeDamage(int damage){
@@ -28,7 +32,7 @@ public class Monster implements Comparable<Monster> {
         return inventory;
     }
 
-    public void updateStatsFromItems(Item item){
+    private void updateStatsFromItems(Item item){
         this.health += item.getHealth();
         this.damage += item.getDamage();
     }
@@ -65,7 +69,7 @@ public class Monster implements Comparable<Monster> {
 
     @Override
     public int hashCode(){
-        return 31 * (name.hashCode() + getHealth() + getDamage() + getPosition().getY() + getPosition().getX());
+        return 31 * (name.hashCode() + (getPosition().getX()+1)*100 + getPosition().getY() );
     }
 
     @Override
@@ -77,7 +81,7 @@ public class Monster implements Comparable<Monster> {
             return false;
         }
         Monster m = (Monster)o;
-        return this.name == m.name && this.health == m.health && this.damage == m.damage && this.position.getX() == m.position.getX() && this.position.getY() == m.position.getY();
+        return this.name.equals(m.name) && this.health == m.health && this.damage == m.damage && this.position.getX() == m.position.getX() && this.position.getY() == m.position.getY();
     }
 
     public int compareTo(Monster monster) {
