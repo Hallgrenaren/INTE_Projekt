@@ -33,25 +33,25 @@ class MonsterTest {
     @Test
     public void testConstructorInvalidPositionX1() {
         Monster p = new Monster("Zombie", 100,10,new Position(0,1));
-        assert(p.getPosition().getX()==1&&p.getPosition().getY()==1);
+        assert(p.getPosition().getX()==0&&p.getPosition().getY()==1);
     }
 
     @Test
     public void testConstructorInvalidPositionX2() {
         Monster p = new Monster("Zombie", 100,10,new Position(12,1));
-        assert(p.getPosition().getX()==10&&p.getPosition().getY()==1);
+        assert(p.getPosition().getX()==9&&p.getPosition().getY()==1);
     }
 
     @Test
     public void testConstructorInvalidPositionY1() {
         Monster p = new Monster("Zombie", 100,10,new Position(1,0));
-        assert(p.getPosition().getX()==1&&p.getPosition().getY()==1);
+        assert(p.getPosition().getX()==1&&p.getPosition().getY()==0);
     }
 
     @Test
     public void testConstructorInvalidPositionY2() {
         Monster p = new Monster("Zombie", 100,10,new Position(1,14));
-        assert(p.getPosition().getX()==1&&p.getPosition().getY()==10);
+        assert(p.getPosition().getX()==1&&p.getPosition().getY()==9);
     }
 
     @Test
@@ -80,6 +80,13 @@ class MonsterTest {
         Monster p = new Monster("Zombie", 100,10,new Position(0,0));
         p.addItem(new Item("Axe",0,50,0));
         assert(!p.getInventory().isEmpty());
+    }
+
+    @Test
+    public void testMonsterCompareToEqual(){
+        Monster p = new Monster("Zombie", 100, 10,new Position(0,0));
+        Monster c = p;
+        assert(p.compareTo(c)==0);
     }
     /*@Test
     public void testMonsterDie(){

@@ -8,10 +8,9 @@ class PositionTest {
 
     @Test
     void testValidPosition(){
-        Position p = new Position(1,10);
+        Position p = new Position(1,9);
 
-        assertEquals(p.getX(), 1);
-        assertEquals(p.getY(),10);
+        assert(p.getY()==9)&&p.getX()==1;
     }
 
     @Test
@@ -26,7 +25,7 @@ class PositionTest {
     @Test
     void testPositionUnderOne(){
         Position p = new Position(0,-10);
-        Position expected = new Position(1,1);
+        Position expected = new Position(0,0);
 
         assertEquals(p, expected);
 
