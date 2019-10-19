@@ -2,14 +2,47 @@ package RogueM;
 
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
     @Test
-    public void testNameValidValues() {
+    public void testNameValid() {
         Player p = new Player("Zhasam", "Warrior");
         assertEquals("Zhasam", p.getName());
+    }
+
+    @Test
+    public void testNameNull() {
+        Player p = new Player(null, "Warrior");
+        assertEquals("Fail", p.getName());
+    }
+
+    @Test
+    public void testNameEmpty() {
+        Player p = new Player("", "Warrior");
+        assertEquals("Fail", p.getName());
+    }
+    @Test
+    public void testNameMaxLength() {
+        Player p = new Player("123456789", "Warrior");
+        assertEquals("123456789", p.getName());
+    }
+
+    @Test
+    public void testTooLongName() {
+        Player p = new Player("12345678910", "Warrior");
+        assertEquals("Fail", p.getName());
+    }
+
+    @Test
+    public void testPClassInValidValues() {
+        Player p = new Player("Zhasam", "arg");
+        assertEquals("Warrior", p.getpClass());
+
     }
 
     @Test
@@ -47,6 +80,60 @@ class PlayerTest {
         Player p = new Player("Zhasam", "Warrior");
         p.addItem(new Item("Axe",0,50,0));
         assert(!p.getInventory().isEmpty());
+    }
+
+    @Test
+    public void testPlayerMove(){
+        Player p = new Player("Zhasam", "Warrior");
+        Position pos = p.getPosition();
+        pos.setX(5);
+        pos.setY(5);
+        int key = KeyEvent.VK_A;
+        p.move(key);
+        assertEquals(4, pos.getX());
+    }
+
+    @Test
+    public void testPlayerMoveOOBLeft(){
+        Player p = new Player("Zhasam", "Warrior");
+        Position pos = p.getPosition();
+        int key = KeyEvent.VK_A;
+        p.move(key);
+        assertEquals(0, pos.getX());
+    }
+
+    @Test
+    public void testPlayerMoveOOBDown(){
+        Player p = new Player("Zhasam", "Warrior");
+        Position pos = p.getPosition();
+        pos.setY(9);
+        int key = KeyEvent.VK_S;
+        p.move(key);
+        assertEquals(9, pos.getY());
+    }
+
+    @Test
+    public void testPlayerMoveOOBRight(){
+        Player p = new Player("Zhasam", "Warrior");
+        Position pos = p.getPosition();
+        pos.setX(9);
+        int key = KeyEvent.VK_D;
+        p.move(key);
+        assertEquals(9, pos.getX());
+    }
+
+    @Test
+    public void testPlayerMoveOOBTop(){
+        Player p = new Player("Zhasam", "Warrior");
+        Position pos = p.getPosition();
+        int key = KeyEvent.VK_W;
+        p.move(key);
+        assertEquals(0, pos.getY());
+    }
+
+    @Test
+    public void testPlayerSetName(){
+        Player p = new Player("", "Warrior");
     }
 
 }

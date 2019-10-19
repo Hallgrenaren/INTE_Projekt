@@ -9,13 +9,32 @@ public class Player {
     private int health;
     private int speed;
     private int damage;
-    private Position position;
+    Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private String pClass;
 
     public Player(String name, String pClass){
-        this.name = name;
-        this.pClass = pClass;
+        try{
+            if (name.equals("")){
+                System.err.println("Empty name.");
+                this.name = "Fail";
+            } else if (name.length() > 10) {
+                System.err.println("Name too long");
+                this.name = "Fail";
+            } else {
+                this.name = name;
+            }
+        } catch (NullPointerException e){
+                System.err.println("Not a name.");
+                this.name = "Fail"; //Lägg möjligen till kod för att användaren ska försöka igen
+            }
+
+        if(!(pClass.equals("Warrior") || pClass.equals("Assassin"))) {
+            System.err.println("Not a class, Default=Warrior");
+            this.pClass = "Warrior";
+        } else {
+            this.pClass = pClass;
+        }
         if(pClass.equals("Warrior")) {
             this.health = 200;
             this.speed = 10;
@@ -33,9 +52,8 @@ public class Player {
         //GAME OVER
     }
 
-    //Första Upplaga av movement. ta hänsyn till graphic, eller räcker detta? Göra command line för att testa?
-    public void move(KeyEvent e){
-        int key = e.getKeyCode();
+    //tar en int som parameter som ska komma från en KeyEventHandlers KeyCode.
+    public void move(int key){
         if (key == KeyEvent.VK_W){
             position.setY(position.getY() - 1);
         } else if (key == KeyEvent.VK_A){
@@ -62,10 +80,6 @@ public class Player {
     public void addItem(Item item){
         inventory.add(item);
         updateStatsFromItems(item);
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getName() {
@@ -106,10 +120,6 @@ public class Player {
 
     public Position getPosition() {
         return position;
-    }
-
-    public void setpClass(String pClass) {
-        this.pClass = pClass;
     }
 
     public String getpClass() {
