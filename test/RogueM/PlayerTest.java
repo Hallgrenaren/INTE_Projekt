@@ -130,10 +130,4 @@ class PlayerTest {
         p.move(key);
         assertEquals(0, pos.getY());
     }
-
-    @Test
-    public void testPlayerSetName(){
-        Player p = new Player("", "Warrior");
-    }
-
 }
