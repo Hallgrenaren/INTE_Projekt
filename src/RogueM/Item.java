@@ -13,10 +13,6 @@ public class Item {
         this.damage=damage;
     }
 
-    public void drop(Position pos){
-        //Add to map at position pos
-    }
-
     public int getHealth(){
       return health;
     }

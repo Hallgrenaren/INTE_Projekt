@@ -40,7 +40,7 @@ public class Position {
 
     @Override
     public int hashCode() {
-        return (int) (x * 1000 + y);
+        return (x * 1000 + y);
     }
     @Override
     public String toString() {

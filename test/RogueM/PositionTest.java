@@ -18,7 +18,7 @@ class PositionTest {
         Position p = new Position(100,150);
         Position expected = new Position(10,10);
 
-        assertEquals(p, expected);
+        assertEquals(expected,p);
 
     }
 
@@ -27,8 +27,17 @@ class PositionTest {
         Position p = new Position(0,-10);
         Position expected = new Position(0,0);
 
-        assertEquals(p, expected);
+        assertEquals(expected,p);
 
     }
+    @Test
+    void testPositionNull(){
+        Position p = null;
+        Position expected = new Position(0,0);
+
+        assertEquals(expected, p);
+    }
+
+
 
 }
