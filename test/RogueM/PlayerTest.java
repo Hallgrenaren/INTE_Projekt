@@ -1,5 +1,6 @@
 package RogueM;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -8,6 +9,11 @@ import java.awt.event.KeyEvent;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
+
+    @BeforeEach
+    public void setup() {
+        Map.getInstance().resetMap();
+    }
 
     @Test
     public void testNameValid() {

@@ -1,10 +1,16 @@
 package RogueM;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PositionTest {
+
+    @BeforeEach
+    public void setup() {
+        Map.getInstance().resetMap();
+    }
 
     @Test
     void testValidPosition(){
@@ -30,13 +36,7 @@ class PositionTest {
         assertEquals(expected,p);
 
     }
-    @Test
-    void testPositionNull(){
-        Position p = null;
-        Position expected = new Position(0,0);
 
-        assertEquals(expected, p);
-    }
 
 
 
