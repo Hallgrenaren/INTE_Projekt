@@ -31,7 +31,6 @@ public class Map {
             Set<Item> items = itemsInPosition.get(position);
             items.remove(item);
             itemsInPosition.put(position, items);
-
         }
     }
 
@@ -43,7 +42,6 @@ public class Map {
     public void removeMonster(Position position){
         if(monsterInPosition.containsKey(position))
             monsterInPosition.remove(position);
-
     }
 
     public static Map getInstance(){

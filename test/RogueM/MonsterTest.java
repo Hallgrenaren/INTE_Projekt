@@ -176,9 +176,14 @@ class MonsterTest {
         assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
     }
 
-    /*@Test
+    @Test
     public void testMonsterDropItemsOnDeath(){
-
-    }*/
+        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
+        Map.getInstance().addMonster(p.getPosition(),p);
+        p.addItem(new Item("sword",1,1,1));
+        p.addItem(new Item("helm", 2,2,2));
+        p.takeDamage(103);
+        assert(!Map.getInstance().getItems(new Position(0,0)).isEmpty());
+    }
 
 }
