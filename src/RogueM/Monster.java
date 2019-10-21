@@ -44,9 +44,7 @@ public class Monster implements Comparable<Monster> {
     public void die(){
         //Remove from monster list
 
-        for(Item item : inventory){  //Drop items
-        item.drop(this.getPosition());
-        }
+        //Drop items
 
         //Gone from map?
     }
