@@ -12,6 +12,7 @@ public class Player {
     Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private String pClass;
+    private boolean alive;
 
     public Player(String name, String pClass){
         try{
@@ -46,10 +47,11 @@ public class Player {
             this.damage = 100;
         }
         this.position = new Position(0,0);
+        this.alive = true;
     }
 
     public void die(){
-        //GAME OVER
+        this.alive = false; //vore annan kod ifall vi hade ett implementerat gränssnitt, där skulle man få game-over screen o få starta om.
     }
 
     //tar en int som parameter som ska komma från en KeyEventHandlers KeyCode.
@@ -124,5 +126,13 @@ public class Player {
 
     public String getpClass() {
         return pClass;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 }
