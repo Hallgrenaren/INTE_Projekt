@@ -17,7 +17,7 @@ class MapTest {
 
         map.addMonster(monster.getPosition(), monster);
 
-        assertEquals(map.getMonster(monster.getPosition()).getName(),"Goblin" );
+        assertEquals("Goblin",map.getMonster(monster.getPosition()).getName());
 
     }
 
@@ -36,7 +36,7 @@ class MapTest {
         map.addItem(pos,item1);
         map.addItem(pos,item2);
 
-        assertEquals(map.getItems(), expected);
+        assertEquals(expected, map.getItems());
 
 
     }
@@ -71,7 +71,7 @@ class MapTest {
 
         map.removeItem(pos, item1);
 
-        assertEquals(map.getItems(), expected);
+        assertEquals(expected, map.getItems());
 
 
     }
@@ -86,7 +86,7 @@ class MapTest {
         map.addMonster(pos,m1);
         map.addMonster(pos,m2);
 
-        assertEquals(map.getMonster(pos),m1);
+        assertEquals(m1,map.getMonster(pos));
 
     }
 
