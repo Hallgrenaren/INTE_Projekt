@@ -1,10 +1,16 @@
 package RogueM;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MonsterTest {
+
+    @BeforeEach
+    public void setup() {
+        Map.getInstance().resetMap();
+    }
 
     @Test
     public void testConstructorValidName() {
@@ -162,12 +168,13 @@ class MonsterTest {
 
         assertEquals(pHashCode,cHashCode);
     }
-    /*@Test
+    @Test
     public void testMonsterDie(){
-        Monster p = new Monster(new Position(0,0));
+        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
+        Map.getInstance().addMonster(p.getPosition(),p);
         p.takeDamage(100);
-        assert(!map.MonsterList.exists(p));
-    }*/
+        assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
+    }
 
     /*@Test
     public void testMonsterDropItemsOnDeath(){

@@ -12,6 +12,7 @@ public class Monster implements Comparable<Monster> {
     private Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
 
+
     public Monster(String name, int health, int damage, Position pos) {
         this.name = name;
         this.health = health;
@@ -43,8 +44,11 @@ public class Monster implements Comparable<Monster> {
     }
     public void die(){
         //Remove from monster list
+        Map.getInstance().removeMonster(this.position);
 
         //Drop items
+        for(Item item : this.getInventory())
+            Map.getInstance().addItem(this.position,item);
 
         //Gone from map?
     }

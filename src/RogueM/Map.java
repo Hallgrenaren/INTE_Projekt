@@ -6,8 +6,15 @@ import java.util.Set;
 
 public class Map {
 
+    private static Map map = new Map();
+
     private HashMap<Position, Monster> monsterInPosition = new HashMap<>();
     private HashMap<Position, Set<Item>> itemsInPosition = new HashMap<>();
+
+    public void resetMap(){
+        monsterInPosition = new HashMap<>();
+        itemsInPosition = new HashMap<>();
+    }
 
     public void addItem(Position position, Item item){
         Set<Item> items = itemsInPosition.get(position);
@@ -31,7 +38,6 @@ public class Map {
     public void addMonster(Position position, Monster monster){
         if(monsterInPosition.isEmpty())
         monsterInPosition.put(position, monster);
-
     }
 
     public void removeMonster(Position position){
@@ -40,12 +46,16 @@ public class Map {
 
     }
 
+    public static Map getInstance(){
+        return map;
+    }
+
     public Monster getMonster(Position position){
         return monsterInPosition.get(position);
     }
 
-    public HashMap<Position, Set<Item>> getItems(){
-        HashMap<Position, Set<Item>> items = new HashMap<>(itemsInPosition);
+    public Set<Item> getItems(Position position){
+        Set<Item> items = itemsInPosition.get(position);
 
         return items;
     }
