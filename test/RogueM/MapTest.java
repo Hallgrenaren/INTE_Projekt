@@ -36,7 +36,7 @@ class MapTest {
         map.addItem(pos,item1);
         map.addItem(pos,item2);
 
-        assertEquals(expected, map.getItems());
+        assertEquals(expected, map.getItems(pos));
 
 
     }
@@ -71,7 +71,7 @@ class MapTest {
 
         map.removeItem(pos, item1);
 
-        assertEquals(expected, map.getItems());
+        assertEquals(expected, map.getItems(pos));
 
 
     }
@@ -87,6 +87,34 @@ class MapTest {
         map.addMonster(pos,m2);
 
         assertEquals(m1,map.getMonster(pos));
+
+    }
+    @Test
+    void testMapGetItemsInPosition(){
+        Map map = new Map();
+        Position pos = new Position(1,1);
+        Item item1 = new Item("Sword",0,1,1);
+        Item item2 = new Item("Shield",10,0,0);
+        HashSet<Item> expected = new HashSet<>();
+        expected.add(item1);
+        expected.add(item2);
+
+        map.addItem(pos,item1);
+        map.addItem(pos,item2);
+
+        assertEquals(expected,map.getItems(pos));
+
+
+
+
+    }
+
+    @Test
+    void testMapGetItemsEmpty(){
+        Map map = new Map();
+        Position pos = new Position(1,1);
+
+        assertNull(map.getItems(pos));
 
     }
 
