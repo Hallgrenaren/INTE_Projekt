@@ -3,9 +3,7 @@ package RogueM;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -92,7 +90,6 @@ class MapTest {
     }
     @Test
     void testMapGetItemsInPosition(){
-        Map map = new Map();
         Position pos = new Position(1,1);
         Item item1 = new Item("Sword",0,1,1);
         Item item2 = new Item("Shield",10,0,0);
@@ -100,10 +97,10 @@ class MapTest {
         expected.add(item1);
         expected.add(item2);
 
-        map.addItem(pos,item1);
-        map.addItem(pos,item2);
+        Map.getInstance().addItem(pos,item1);
+        Map.getInstance().addItem(pos,item2);
 
-        assertEquals(expected,map.getItems(pos));
+        assertEquals(expected,Map.getInstance().getItems(pos));
 
 
 
@@ -112,10 +109,9 @@ class MapTest {
 
     @Test
     void testMapGetItemsEmpty(){
-        Map map = new Map();
         Position pos = new Position(1,1);
 
-        assertNull(map.getItems(pos));
+        assertNull(Map.getInstance().getItems(pos));
 
     }
 
