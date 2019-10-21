@@ -2,7 +2,6 @@ package RogueM;
 
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,7 +40,7 @@ class PlayerTest {
     @Test
     public void testPClassInValidValues() {
         Player p = new Player("Zhasam", "arg");
-        assertEquals("Warrior", p.getpClass());
+        assertEquals("Warrior", p.getPClass());
 
     }
 
