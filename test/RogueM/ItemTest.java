@@ -54,18 +54,18 @@ public class ItemTest {
     @Test
     public void notNull(){
         Item t = new Item(null, 0, 0, 0);
-        assertEquals("Fail", t.getName());
+        assertEquals("Magic Stone", t.getName());
     }
 
     @Test
     public void testNameEmpty() {
         Item t = new Item("", 0, 0, 0);
-        assertEquals("Fail", t.getName());
+        assertEquals("Magic Stone", t.getName());
     }
 
     @Test
     public void testNameTooLong() {
         Item t = new Item("12345678910", 0, 0, 0);
-        assertEquals("Fail", t.getName());
+        assertEquals("Magic Stone", t.getName());
     }
 }

@@ -7,10 +7,31 @@ public class Item {
     private int damage=0;
 
     public Item(String name, int health, int speed, int damage){
-        this.name=name;
-        this.health=health;
-        this.speed=speed;
-        this.damage=damage;
+        try{
+            if (name.equals("")){
+                System.err.println("Empty name.");
+                this.name = "Magic Stone";
+            } else if (name.length() > 10) {
+                System.err.println("Name too long");
+                this.name = "Magic Stone";
+            } else {
+                this.name = name;
+            }
+        } catch (NullPointerException e){
+            System.err.println("Not a name.");
+            this.name = "Magic Stone"; //Lägg möjligen till kod för att användaren ska försöka igen
+        }
+        this.health = validItemValue(health);
+        this.speed = validItemValue(speed);
+        this.damage = validItemValue(damage);
+    }
+
+    private int validItemValue(int x){
+        if(x < 0)
+            x = 0;
+        if(x > 5)
+            x = 5;
+        return x;
     }
 
     public int getHealth(){
@@ -21,5 +42,9 @@ public class Item {
     }
     public int getDamage(){
         return damage;
+    }
+
+    public String getName() {
+        return name;
     }
 }
