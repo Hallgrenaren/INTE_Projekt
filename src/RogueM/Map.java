@@ -54,8 +54,8 @@ public class Map {
         return monsterInPosition.get(position);
     }
 
-    public HashMap<Position, Set<Item>> getItems(){
-        HashMap<Position, Set<Item>> items = new HashMap<>(itemsInPosition);
+    public Set<Item> getItems(Position position){
+        Set<Item> items = itemsInPosition.get(position);
 
         return items;
     }

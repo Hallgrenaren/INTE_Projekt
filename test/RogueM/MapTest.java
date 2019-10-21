@@ -32,16 +32,11 @@ class MapTest {
         Position pos = new Position(1,1);
         Item item1 = new Item("Sword",0,1,1);
         Item item2 = new Item("Shield",10,0,0);
-        HashMap<Position, Set<Item>> expected = new HashMap<>();
-        HashSet<Item> items = new HashSet<>();
-        items.add(item1);
-        items.add(item2);
-        expected.put(pos,items);
 
         Map.getInstance().addItem(pos,item1);
         Map.getInstance().addItem(pos,item2);
 
-        assertEquals(expected, Map.getInstance().getItems());
+        assertNotNull(Map.getInstance().getItems(pos));
 
 
     }
@@ -64,17 +59,15 @@ class MapTest {
         Item item1 = new Item("Sword",0,1,1);
         Item item2 = new Item("Shield",10,0,0);
 
-        HashMap<Position, Set<Item>> expected = new HashMap<>();
-        HashSet<Item> items = new HashSet<>();
-        items.add(item2);
-        expected.put(pos,items);
+        HashSet<Item> expected = new HashSet<>();
+        expected.add(item2);
 
         Map.getInstance().addItem(pos,item1);
         Map.getInstance().addItem(pos,item2);
 
         Map.getInstance().removeItem(pos, item1);
 
-        assertEquals(expected, Map.getInstance().getItems());
+        assertEquals(expected, Map.getInstance().getItems(pos));
 
 
     }
@@ -96,6 +89,34 @@ class MapTest {
     public void testGetMonsterNotExists(){
         Monster m = Map.getInstance().getMonster(new Position(0,0));
         assert(m==null);
+    }
+    @Test
+    void testMapGetItemsInPosition(){
+        Map map = new Map();
+        Position pos = new Position(1,1);
+        Item item1 = new Item("Sword",0,1,1);
+        Item item2 = new Item("Shield",10,0,0);
+        HashSet<Item> expected = new HashSet<>();
+        expected.add(item1);
+        expected.add(item2);
+
+        map.addItem(pos,item1);
+        map.addItem(pos,item2);
+
+        assertEquals(expected,map.getItems(pos));
+
+
+
+
+    }
+
+    @Test
+    void testMapGetItemsEmpty(){
+        Map map = new Map();
+        Position pos = new Position(1,1);
+
+        assertNull(map.getItems(pos));
+
     }
 
 }

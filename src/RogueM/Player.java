@@ -77,6 +77,7 @@ public class Player {
     public void updateStatsFromItems(Item item){
         this.health += item.getHealth();
         this.damage += item.getDamage();
+        this.speed += item.getSpeed();
     }
 
     public void addItem(Item item){
@@ -92,44 +93,24 @@ public class Player {
         return inventory;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
     public int getHealth() {
         return health;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
 
     public int getSpeed() {
         return speed;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public int getDamage() {
         return damage;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
     }
 
     public Position getPosition() {
         return position;
     }
 
-    public String getpClass() {
+    public String getPClass() {
         return pClass;
-    }
-
-    public void setAlive(boolean alive) {
-        this.alive = alive;
     }
 
     public boolean isAlive() {
