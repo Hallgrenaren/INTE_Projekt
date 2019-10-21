@@ -25,11 +25,10 @@ public class Map {
 
     public void addMonster(Position position, Monster monster){
         monsterInPosition.put(position, monster);
-
     }
 
+    //returns null if no monster on the given position.
     public Monster getMonster(Position position){
-
         return monsterInPosition.get(position);
     }
 

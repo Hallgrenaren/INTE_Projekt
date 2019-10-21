@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MapTest {
 
     @Test
-    void testAddMonster(){
+    public void testAddMonster(){
         Map map = new Map();
         Monster monster = new Monster("Goblin", 100, 1, new Position(5,5));
 
@@ -22,7 +22,7 @@ class MapTest {
     }
 
     @Test
-    void testAddItems(){
+    public void testAddItems(){
         Map map = new Map();
         Position pos = new Position(1,1);
         Item item1 = new Item("Sword",0,1,1);
@@ -40,6 +40,13 @@ class MapTest {
         assertEquals(map.getItems(), expected);
 
 
+    }
+
+    @Test
+    public void testGetMonsterNotExists(){
+        Map map = new Map();
+        Monster m = map.getMonster(new Position(0,0));
+        assert(m==null);
     }
 
 }
