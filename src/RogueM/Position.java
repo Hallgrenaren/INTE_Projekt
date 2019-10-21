@@ -8,8 +8,9 @@ public class Position {
 
 
     public Position(int x, int y) {
-        this.x = validPosCheck(x);
-        this.y = validPosCheck(y);
+            this.x = validPosCheck(x);
+            this.y = validPosCheck(y);
+        
     }
 
     public int validPosCheck(int a){
