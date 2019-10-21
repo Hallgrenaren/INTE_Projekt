@@ -10,7 +10,6 @@ public class Position {
     public Position(int x, int y) {
         this.x = validPosCheck(x);
         this.y = validPosCheck(y);
-
     }
 
     public int validPosCheck(int a){
@@ -41,7 +40,7 @@ public class Position {
 
     @Override
     public int hashCode() {
-        return (int) (x * 1000 + y);
+        return (x * 1000 + y);
     }
     @Override
     public String toString() {
