@@ -130,4 +130,22 @@ class PlayerTest {
         p.move(key);
         assertEquals(0, pos.getY());
     }
+
+    public void testPlayerDie(){
+        Player p = new Player("Zhasam", "Warrior");
+        p.takeDamage(201);
+        assertFalse(p.alive);
+    }
+
+    public void testPlayerDie2(){
+        Player p = new Player("Zhasam", "Warrior");
+        p.takeDamage(200);
+        assertFalse(p.alive);
+    }
+
+    public void testPlayerAlive(){
+        Player p = new Player("Zhasam", "Warrior");
+        p.takeDamage(201);
+        assertTrue(p.alive);
+    }
 }
