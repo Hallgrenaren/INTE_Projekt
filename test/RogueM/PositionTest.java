@@ -36,6 +36,19 @@ class PositionTest {
         assertEquals(expected,p);
 
     }
+    @Test
+    void testNotEquals(){
+        Position a = new Position(1,1);
+        Position b = new Position(1,2);
+
+        assertNotEquals(1,b);
+    }
+    @Test
+    void testToString(){
+        Position p = new Position(1,1);
+
+        assertEquals("[1,1]",p.toString());
+    }
 
 
 
