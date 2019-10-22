@@ -41,7 +41,14 @@ class PositionTest {
         Position a = new Position(1,1);
         Position b = new Position(1,2);
 
-        assertNotEquals(1,b);
+        assertNotEquals(a,b);
+    }
+    @Test
+    void testDifferentObjectEquals(){
+        Position a = new Position(1,1);
+        String b = "1,1";
+
+        assert(!a.equals(b));
     }
     @Test
     void testToString(){

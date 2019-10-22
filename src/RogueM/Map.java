@@ -36,7 +36,7 @@ public class Map {
 
     public void addMonster(Position position, Monster monster){
         if(monsterInPosition.isEmpty())
-        monsterInPosition.put(position, monster);
+            monsterInPosition.put(position, monster);
     }
 
     public void removeMonster(Position position){

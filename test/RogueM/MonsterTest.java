@@ -71,14 +71,14 @@ class MonsterTest {
     public void testMonsterExactKill(){
         Monster p = new Monster("Zombie", 100,10, new Position(0,0));
         p.takeDamage(100);
-        assert(p.getHealth()==0);
+        assert(p.getHealth()==0); //how do we know the monster is dead??
     }
 
     @Test
     public void testMonsterOverkill(){
         Monster p = new Monster("Zombie", 100,10, new Position(0,0));
         p.takeDamage(150);
-        assert(p.getHealth()==-50);
+        assert(p.getHealth()==-50);//how do we know the monster is dead??
     }
 
     @Test
@@ -184,6 +184,27 @@ class MonsterTest {
         p.addItem(new Item("helm", 2,2,2));
         p.takeDamage(103);
         assert(!Map.getInstance().getItems(new Position(0,0)).isEmpty());
+    }
+
+    @Test
+    public void testGetName(){
+        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
+        assert(p.getName().equals("Zombie"));
+    }
+    @Test
+    public void testGetHealth(){
+        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
+        assert(p.getHealth()==100);
+    }
+    @Test
+    public void testGetDamage(){
+        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
+        assert(p.getDamage()==10);
+    }
+    @Test
+    public void testGetPosition(){
+        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
+        assert(p.getPosition().equals(new Position(0,0)));
     }
 
 }

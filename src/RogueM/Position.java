@@ -53,7 +53,7 @@ public class Position {
             Position p = (Position) o;
             return x == p.x && y == p.y;
         }
-        else
+
             return false;
     }
 
