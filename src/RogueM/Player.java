@@ -50,6 +50,7 @@ public class Player {
         }
         this.position = new Position(0,0);
         this.alive = true;
+        Map.getInstance().setPlayer(this);
     }
 
     public void die(){
