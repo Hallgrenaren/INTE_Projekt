@@ -115,4 +115,11 @@ class MapTest {
 
     }
 
+    @Test
+    public void testMapSetGetPlayer(){
+        Player player = new Player("John", "Assassin");
+        Map.getInstance().setPlayer(player);
+        assert(player.equals(Map.getInstance().getPlayer()));
+    }
+
 }

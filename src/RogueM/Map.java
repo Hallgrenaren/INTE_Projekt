@@ -8,6 +8,7 @@ public class Map {
 
     private static Map map = new Map();
 
+    private Player player;
     private HashMap<Position, Monster> monsterInPosition = new HashMap<>();
     private HashMap<Position, Set<Item>> itemsInPosition = new HashMap<>();
 
@@ -15,6 +16,7 @@ public class Map {
         monsterInPosition = new HashMap<>();
         itemsInPosition = new HashMap<>();
     }
+
 
     public void addItem(Position position, Item item){
         Set<Item> items = itemsInPosition.get(position);
@@ -43,6 +45,13 @@ public class Map {
         if(monsterInPosition.containsKey(position))
             monsterInPosition.remove(position);
     }
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+    public Player getPlayer(){
+        return player;
+    }
+
 
     public static Map getInstance(){
         return map;
