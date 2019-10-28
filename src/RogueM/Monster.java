@@ -11,6 +11,7 @@ public class Monster implements Comparable<Monster> {
     private int damage;
     private Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
+    private boolean isAlive = true;
     private boolean enraged = false;
     private boolean scared = false;
 
@@ -22,6 +23,7 @@ public class Monster implements Comparable<Monster> {
         this.position = pos;
         ID = monsterCount;
         monsterCount += 1;
+        Map.getInstance().addMonster(pos,this);
     }
 
     public void takeDamage(int damage){
@@ -35,7 +37,6 @@ public class Monster implements Comparable<Monster> {
             die();
         }
     }
-
 
     public List<Item> getInventory(){
         return inventory;
@@ -58,6 +59,7 @@ public class Monster implements Comparable<Monster> {
         for(Item item : this.getInventory())
             Map.getInstance().addItem(this.position,item);
 
+        isAlive = false;
         //Gone from map?
     }
 
@@ -71,6 +73,9 @@ public class Monster implements Comparable<Monster> {
 
     public int getDamage() {
         return damage;
+    }
+    public boolean isAlive(){
+        return isAlive;
     }
 
     public Position getPosition(){

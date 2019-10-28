@@ -122,4 +122,37 @@ class MapTest {
         assert(player.equals(Map.getInstance().getPlayer()));
     }
 
+    @Test
+    public void testMapCombatOneShot(){
+        Player player = new Player("John", "Assassin");
+        Map.getInstance().setPlayer(player);
+        Monster monster = new Monster("Zombie", 100, 10, new Position(0,0));
+        Map.getInstance().combat(monster);
+        assert(Map.getInstance().getPlayer().getHealth()==100);
+    }
+    @Test
+    public void testMapCombatNotOneShotButWin(){
+        Player player = new Player("John", "Assassin");
+        Map.getInstance().setPlayer(player);
+        Monster monster = new Monster("Zombie", 300, 10, new Position(0,0));
+        Map.getInstance().combat(monster);
+        assert(Map.getInstance().getPlayer().getHealth()==80);
+    }
+    @Test
+    public void testMapCombatMonsterWin(){
+        Player player = new Player("John", "Assassin");
+        Map.getInstance().setPlayer(player);
+        Monster monster = new Monster("Zombie", 300, 50, new Position(0,0));
+        Map.getInstance().combat(monster);
+        assert(!Map.getInstance().getPlayer().isAlive());
+    }
+    @Test
+    public void testMapCombatMonsterRemovedOnDeath(){
+        Player player = new Player("John", "Assassin");
+        Map.getInstance().setPlayer(player);
+        Monster monster = new Monster("Zombie", 300, 10, new Position(0,0));
+        Map.getInstance().combat(monster);
+        assert(Map.getInstance().getMonster(new Position(0,0))==null);
+    }
+
 }

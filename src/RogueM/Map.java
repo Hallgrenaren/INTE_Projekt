@@ -17,6 +17,14 @@ public class Map {
         itemsInPosition = new HashMap<>();
     }
 
+    public void combat(Monster monster){
+        while (monster.isAlive() && player.isAlive()){
+            monster.takeDamage(player.getDamage());
+            if(monster.isAlive()){
+                player.takeDamage(monster.getDamage());
+            }
+        }
+    }
 
     public void addItem(Position position, Item item){
         Set<Item> items = itemsInPosition.get(position);
