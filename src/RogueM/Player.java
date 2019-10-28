@@ -2,7 +2,9 @@ package RogueM;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Player {
     private String name;
@@ -62,10 +64,14 @@ public class Player {
             position.setX(position.getX() - 1);
         } else if (key == KeyEvent.VK_S){
             position.setY(position.getY() + 1);
-        } else if (key == KeyEvent.VK_D){
+        } else if (key == KeyEvent.VK_D) {
             position.setX(position.getX() + 1);
         }
+        Map.getInstance().updatePlayerPosition(position);
+
     }
+
+
 
     public void takeDamage(int damage){
         this.health -= damage;

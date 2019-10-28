@@ -156,4 +156,13 @@ class PlayerTest {
         p.takeDamage(50);
         assertTrue(p.isAlive());
     }
+    @Test
+    void updatePosition(){
+        Player player = new Player("Zhasam", "Warrior");
+        player.move(KeyEvent.VK_D);
+        Position p = new Position(1,0);
+
+        assertEquals(Map.getInstance().getPlayerPosition(),p);
+    }
+
 }
