@@ -18,7 +18,12 @@ public class Map {
     }
 
     public void combat(Monster monster){
-
+        while (monster.isAlive() && player.isAlive()){
+            monster.takeDamage(player.getDamage());
+            if(monster.isAlive()){
+                player.takeDamage(monster.getDamage());
+            }
+        }
     }
 
     public void addItem(Position position, Item item){
