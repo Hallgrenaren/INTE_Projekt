@@ -159,10 +159,10 @@ class PlayerTest {
     @Test
     void updatePosition(){
         Player player = new Player("Zhasam", "Warrior");
-        player.move(KeyEvent.VK_D);
+        Map.getInstance().setPlayer(player);
+        Map.getInstance().getPlayer().move(KeyEvent.VK_D);
         Position p = new Position(1,0);
-
-        assertEquals(Map.getInstance().getPlayerPosition(),p);
+        assertEquals(Map.getInstance().getPlayer().getPosition(),p);
     }
 
 }

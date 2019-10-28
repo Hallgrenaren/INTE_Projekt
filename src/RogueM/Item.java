@@ -16,6 +16,7 @@ public class Item {
                 this.name = "Magic Stone";
             } else {
                 this.name = name;
+
             }
         } catch (NullPointerException e){
             System.err.println("Not a name.");

@@ -67,6 +67,17 @@ public class Map {
         return items;
     }
 
+    public void updatePlayerPosition(Position position){
+        player.getPosition().setX(position.getX());
+        player.getPosition().setY(position.getY());
+    }
+
+
+
+
+
+
+
 
 
 }
