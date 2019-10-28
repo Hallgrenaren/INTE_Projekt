@@ -12,6 +12,8 @@ public class Monster implements Comparable<Monster> {
     private Position position;
     private ArrayList<Item> inventory = new ArrayList<Item>();
     private boolean isAlive = true;
+    private boolean enraged = false;
+    private boolean scared = false;
 
 
     public Monster(String name, int health, int damage, Position pos) {
@@ -26,7 +28,12 @@ public class Monster implements Comparable<Monster> {
 
     public void takeDamage(int damage){
         this.health -= damage;
-        if(health<=0){
+        if(health > 25 && health<=50){
+            this.enraged = true;
+        } else if(health > 0 && health <= 25){
+            this.enraged = false;
+            this.scared = true;
+        } else if(health<=0){
             die();
         }
     }
@@ -99,5 +106,13 @@ public class Monster implements Comparable<Monster> {
             return 1;//monster greater than this
         else
             return -1;
+    }
+
+    public boolean isEnraged() {
+        return enraged;
+    }
+
+    public boolean isScared() {
+        return scared;
     }
 }
