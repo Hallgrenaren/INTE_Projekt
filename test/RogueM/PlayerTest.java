@@ -165,4 +165,28 @@ class PlayerTest {
         assertEquals(Map.getInstance().getPlayer().getPosition(),p);
     }
 
+    @Test
+    void moveIntoCombatPlayerWins(){
+        Player player = new Player("Zhasam", "Warrior");
+        Map.getInstance().setPlayer(player);
+        Monster monster = new Monster("Zombie", 100,10, new Position(1,0));
+        Map.getInstance().getPlayer().move(KeyEvent.VK_D);
+
+        assertFalse(monster.isAlive());
+
+        
+    }
+
+    @Test
+    void moveIntoCombatPlayerDies(){
+        Player player = new Player("Zhasam", "Warrior");
+        Map.getInstance().setPlayer(player);
+        Monster monster = new Monster("Zombie", 100,200, new Position(1,0));
+        Map.getInstance().getPlayer().move(KeyEvent.VK_D);
+
+        assertFalse(player.isAlive());
+
+
+    }
+
 }

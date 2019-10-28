@@ -78,6 +78,9 @@ public class Map {
     public void updatePlayerPosition(Position position){
         player.getPosition().setX(position.getX());
         player.getPosition().setY(position.getY());
+        if(getMonster(position) != null){
+            combat(getMonster(position));
+        }
     }
 
 
