@@ -45,6 +45,13 @@ public class Map {
         if(monsterInPosition.containsKey(position))
             monsterInPosition.remove(position);
     }
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+    public Player getPlayer(){
+        return player;
+    }
+
 
     public static Map getInstance(){
         return map;
