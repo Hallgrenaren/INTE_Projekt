@@ -17,6 +17,9 @@ public class Map {
         itemsInPosition = new HashMap<>();
     }
 
+    public void combat(Monster monster){
+
+    }
 
     public void addItem(Position position, Item item){
         Set<Item> items = itemsInPosition.get(position);

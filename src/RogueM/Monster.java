@@ -20,6 +20,7 @@ public class Monster implements Comparable<Monster> {
         this.position = pos;
         ID = monsterCount;
         monsterCount += 1;
+        Map.getInstance().addMonster(pos,this);
     }
 
     public void takeDamage(int damage){
