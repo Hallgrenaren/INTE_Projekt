@@ -14,7 +14,7 @@ public class Monster{
     private boolean scared = false;
 
 
-    public Monster(String name, int health, int damage, Position pos) {
+    Monster(String name, int health, int damage, Position pos) {
         this.name = name;
         this.health = health;
         this.damage = damage;
@@ -22,7 +22,7 @@ public class Monster{
         Map.getInstance().addMonster(pos,this);
     }
 
-    public void takeDamage(int damage){
+    void takeDamage(int damage){
         this.health -= damage;
         if(health > 25 && health<=50){
             this.enraged = true;
@@ -34,7 +34,7 @@ public class Monster{
         }
     }
 
-    public List<Item> getInventory(){
+    List<Item> getInventory(){
         ArrayList<Item> copyOfInventory = inventory;
         return copyOfInventory;
     }
@@ -44,12 +44,12 @@ public class Monster{
         this.damage += item.getDamage();
     }
 
-    public void addItem(Item item){
+    void addItem(Item item){
         inventory.add(item);
         updateStatsFromItems(item);
     }
 
-    public void die(){
+    void die(){
         //Remove from monster list
         Map.getInstance().removeMonster(this.position);
 
@@ -61,23 +61,23 @@ public class Monster{
         //Gone from map?
     }
 
-    public int getHealth() {
+    int getHealth() {
         return health;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getDamage() {
+    int getDamage() {
         return damage;
     }
 
-    public boolean isAlive(){
+    boolean isAlive(){
         return isAlive;
     }
 
-    public Position getPosition(){
+    Position getPosition(){
         return position;
     }
 
@@ -98,11 +98,11 @@ public class Monster{
         return this.name.equals(m.name) && this.health == m.health && this.damage == m.damage && this.position.getX() == m.position.getX() && this.position.getY() == m.position.getY();
     }
 
-    public boolean isEnraged() {
+    boolean isEnraged() {
         return enraged;
     }
 
-    public boolean isScared() {
+    boolean isScared() {
         return scared;
     }
 }
