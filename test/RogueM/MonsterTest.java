@@ -89,24 +89,6 @@ class MonsterTest {
     }
 
     @Test
-    public void testMonsterCompareToEqual(){
-        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Monster c = p;
-        assert(p.compareTo(c)==0);
-    }
-    @Test
-    public void testMonsterCompareToSmaller(){
-        Monster p = new Monster("Zombie", 100, 10, new Position(1,0));
-        Monster c = new Monster("Zombie", 100, 10, new Position(0,0));
-        assert(p.compareTo(c)==-1);
-    }
-    @Test
-    public void testMonsterCompareToBigger(){
-        Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Monster c = new Monster("Zombie", 100, 10, new Position(1,0));
-        assert(p.compareTo(c)==1);
-    }
-    @Test
     public void testMonsterEqualsSameObject(){
         Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
         assert(p.equals(p));
