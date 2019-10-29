@@ -3,9 +3,7 @@ package RogueM;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Monster implements Comparable<Monster> {
-    static private int monsterCount=0;
-    private int ID;
+public class Monster{
     private String name;
     private int health;
     private int damage;
@@ -21,8 +19,6 @@ public class Monster implements Comparable<Monster> {
         this.health = health;
         this.damage = damage;
         this.position = pos;
-        ID = monsterCount;
-        monsterCount += 1;
         Map.getInstance().addMonster(pos,this);
     }
 
@@ -52,6 +48,7 @@ public class Monster implements Comparable<Monster> {
         inventory.add(item);
         updateStatsFromItems(item);
     }
+
     public void die(){
         //Remove from monster list
         Map.getInstance().removeMonster(this.position);
@@ -75,6 +72,7 @@ public class Monster implements Comparable<Monster> {
     public int getDamage() {
         return damage;
     }
+
     public boolean isAlive(){
         return isAlive;
     }
@@ -98,15 +96,6 @@ public class Monster implements Comparable<Monster> {
         }
         Monster m = (Monster)o;
         return this.name.equals(m.name) && this.health == m.health && this.damage == m.damage && this.position.getX() == m.position.getX() && this.position.getY() == m.position.getY();
-    }
-
-    public int compareTo(Monster monster) {
-        if(monster.position.getY()==this.position.getY()&&monster.position.getX()==this.position.getX())
-            return 0;//same
-        if((monster.position.getX()+monster.position.getY())>(this.position.getX()+this.position.getY()))
-            return 1;//monster greater than this
-        else
-            return -1;
     }
 
     public boolean isEnraged() {
