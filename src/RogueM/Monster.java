@@ -39,7 +39,8 @@ public class Monster implements Comparable<Monster> {
     }
 
     public List<Item> getInventory(){
-        return inventory;
+        ArrayList<Item> copyOfInventory = inventory;
+        return copyOfInventory;
     }
 
     private void updateStatsFromItems(Item item){
@@ -56,7 +57,7 @@ public class Monster implements Comparable<Monster> {
         Map.getInstance().removeMonster(this.position);
 
         //Drop items
-        for(Item item : this.getInventory())
+        for(Item item : this.inventory)
             Map.getInstance().addItem(this.position,item);
 
         isAlive = false;
