@@ -45,8 +45,8 @@ public class Monster {
         }
     }
 
-    public List<Item> getInventory() {
-        List<Item> copyOfInventory = new ArrayList<>(inventory);
+    List<Item> getInventory(){
+        ArrayList<Item> copyOfInventory = new ArrayList<>(inventory);
         return copyOfInventory;
     }
 

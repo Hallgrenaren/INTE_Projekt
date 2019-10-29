@@ -246,4 +246,11 @@ class MonsterTest {
         Monster expected = new Monster("Monster",50,0,new Position(0,0));
         assertEquals(m, expected);
     }
+    @Test
+    public void testMonsterEqualsNull(){
+        Monster monster = new Monster("Zombie", 100, 10, new Position(0,0));
+        Monster monsternull = null;
+
+        assert(!monster.equals(monsternull));
+    }
 }
