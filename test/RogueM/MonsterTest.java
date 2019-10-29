@@ -239,4 +239,11 @@ class MonsterTest {
         p.takeDamage(100);
         assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
     }
+
+    @Test
+    public void testMonsterNullValues(){
+        Monster m = new Monster(null,-1,-1,null);
+        Monster expected = new Monster("Monster",50,0,new Position(0,0));
+        assertEquals(m, expected);
+    }
 }
