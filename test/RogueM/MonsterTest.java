@@ -9,7 +9,7 @@ class MonsterTest {
 
     @BeforeEach
     public void setup() {
-        Map.getInstance().resetMap();
+        Karta.getInstance().resetMap();
     }
 
     @Test
@@ -154,11 +154,11 @@ class MonsterTest {
     @Test
     public void testMonsterDropItemsOnDeath(){
         Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Map.getInstance().addMonster(p.getPosition(),p);
+        Karta.getInstance().addMonster(p.getPosition(),p);
         p.addItem(new Item("sword",1,1,1));
         p.addItem(new Item("helm", 2,2,2));
         p.takeDamage(103);
-        assert(!Map.getInstance().getItems(new Position(0,0)).isEmpty());
+        assert(!Karta.getInstance().getItems(new Position(0,0)).isEmpty());
     }
 
     @Test
@@ -207,37 +207,37 @@ class MonsterTest {
     @Test
     public void testMonsterDieFromNormal(){
         Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Map.getInstance().addMonster(p.getPosition(),p);
+        Karta.getInstance().addMonster(p.getPosition(),p);
         p.takeDamage(100);
-        assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
+        assert(Karta.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
     }
 
     @Test
     public void testMonsterDieFromEnragedThroughNormal(){
         Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Map.getInstance().addMonster(p.getPosition(),p);
+        Karta.getInstance().addMonster(p.getPosition(),p);
         p.takeDamage(55);
         p.takeDamage(100);
-        assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
+        assert(Karta.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
     }
 
     @Test
     public void testMonsterDieFromScaredThroughNormal(){
         Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Map.getInstance().addMonster(p.getPosition(),p);
+        Karta.getInstance().addMonster(p.getPosition(),p);
         p.takeDamage(76);
         p.takeDamage(100);
-        assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
+        assert(Karta.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
     }
 
     @Test
     public void testMonsterDieFromScaredThroughNormalAndEnraged(){
         Monster p = new Monster("Zombie", 100, 10, new Position(0,0));
-        Map.getInstance().addMonster(p.getPosition(),p);
+        Karta.getInstance().addMonster(p.getPosition(),p);
         p.takeDamage(55);
         p.takeDamage(21);
         p.takeDamage(100);
-        assert(Map.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
+        assert(Karta.getInstance().getMonster(new Position(0,0))==null); //if monster not in map its considered dead and gone from the map.
     }
 
     @Test

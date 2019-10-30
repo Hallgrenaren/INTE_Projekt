@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Map {
+public class Karta {
 
-    private static Map map = new Map();
+    private static Karta karta = new Karta();
 
     private Player player;
     private HashMap<Position, Monster> monsterInPosition = new HashMap<>();
@@ -45,7 +45,7 @@ public class Map {
     }
 
     public void addMonster(Position position, Monster monster){
-        if(monsterInPosition.isEmpty())
+        if(monsterInPosition.get(position)==null)
             monsterInPosition.put(position, monster);
     }
 
@@ -60,9 +60,8 @@ public class Map {
         return player;
     }
 
-
-    public static Map getInstance(){
-        return map;
+    public static Karta getInstance(){
+        return karta;
     }
 
     public Monster getMonster(Position position){

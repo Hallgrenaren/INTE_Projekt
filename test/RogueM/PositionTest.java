@@ -9,7 +9,7 @@ class PositionTest {
 
     @BeforeEach
     public void setup() {
-        Map.getInstance().resetMap();
+        Karta.getInstance().resetMap();
     }
 
     @Test

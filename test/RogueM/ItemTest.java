@@ -42,7 +42,7 @@ public class ItemTest {
     @Test
     public void itemInvalidTopSpeed(){
         Item t = new Item("axe", 0, 6, 0);
-        assertEquals(5, t.getSpeed());
+        assert(5== t.getSpeed());
     }
 
     @Test

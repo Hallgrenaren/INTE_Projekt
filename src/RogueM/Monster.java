@@ -27,7 +27,7 @@ public class Monster {
         this.health = health;
         this.damage = damage;
         this.position = pos;
-        Map.getInstance().addMonster(pos, this);
+        Karta.getInstance().addMonster(pos, this);
 
     }
 
@@ -64,11 +64,11 @@ public class Monster {
 
     private void die() {
         //Remove from monster list
-        Map.getInstance().removeMonster(this.position);
+        Karta.getInstance().removeMonster(this.position);
 
         //Drop items
         for (Item item : this.inventory)
-            Map.getInstance().addItem(this.position, item);
+            Karta.getInstance().addItem(this.position, item);
 
         isAlive = false;
         //Gone from map?
