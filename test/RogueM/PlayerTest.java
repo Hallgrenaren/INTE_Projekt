@@ -11,7 +11,7 @@ class PlayerTest {
 
     @BeforeEach
     public void setup() {
-        Map.getInstance().resetMap();
+        Karta.getInstance().resetMap();
     }
 
     @Test
@@ -159,17 +159,17 @@ class PlayerTest {
     @Test
     void updatePosition(){
         Player player = new Player("Zhasam", "Warrior");
-        Map.getInstance().setPlayer(player);
-        Map.getInstance().getPlayer().move(KeyEvent.VK_D);
+        Karta.getInstance().setPlayer(player);
+        Karta.getInstance().getPlayer().move(KeyEvent.VK_D);
         Position p = new Position(1,0);
-        assertEquals(Map.getInstance().getPlayer().getPosition(),p);
+        assertEquals(Karta.getInstance().getPlayer().getPosition(),p);
     }
 
     @Test
     void moveIntoCombatPlayerWins(){
         Player player = new Player("Zhasam", "Warrior");
         Monster monster = new Monster("Zombie", 100,10, new Position(1,0));
-        Map.getInstance().getPlayer().move(KeyEvent.VK_D);
+        Karta.getInstance().getPlayer().move(KeyEvent.VK_D);
 
         assertFalse(monster.isAlive());
 
@@ -180,7 +180,7 @@ class PlayerTest {
     void moveIntoCombatPlayerDies(){
         Player player = new Player("Zhasam", "Warrior");
         Monster monster = new Monster("Zombie", 100,200, new Position(1,0));
-        Map.getInstance().getPlayer().move(KeyEvent.VK_D);
+        Karta.getInstance().getPlayer().move(KeyEvent.VK_D);
 
         assertFalse(player.isAlive());
 

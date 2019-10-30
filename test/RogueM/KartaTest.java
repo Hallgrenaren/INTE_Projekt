@@ -3,15 +3,19 @@ package RogueM;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+import java.util.Random;
+
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MapTest {
+class KartaTest {
 
     @BeforeEach
     public void setup() {
-        Map.getInstance().resetMap();
+        Karta.getInstance().resetMap();
     }
 
     @Test
@@ -19,9 +23,9 @@ class MapTest {
 
         Monster monster = new Monster("Goblin", 100, 1, new Position(5,5));
 
-        Map.getInstance().addMonster(monster.getPosition(), monster);
+        Karta.getInstance().addMonster(monster.getPosition(), monster);
 
-        assertEquals("Goblin",Map.getInstance().getMonster(monster.getPosition()).getName());
+        assertEquals("Goblin", Karta.getInstance().getMonster(monster.getPosition()).getName());
 
     }
 
@@ -31,10 +35,10 @@ class MapTest {
         Item item1 = new Item("Sword",0,1,1);
         Item item2 = new Item("Shield",10,0,0);
 
-        Map.getInstance().addItem(pos,item1);
-        Map.getInstance().addItem(pos,item2);
+        Karta.getInstance().addItem(pos,item1);
+        Karta.getInstance().addItem(pos,item2);
 
-        assertNotNull(Map.getInstance().getItems(pos));
+        assertNotNull(Karta.getInstance().getItems(pos));
 
 
     }
@@ -44,10 +48,10 @@ class MapTest {
         Monster monster = new Monster("Goblin", 100, 1, new Position(5,5));
         Position position = new Position(4,4);
 
-        Map.getInstance().addMonster(position, monster);
-        Map.getInstance().removeMonster(position);
+        Karta.getInstance().addMonster(position, monster);
+        Karta.getInstance().removeMonster(position);
 
-        assertNull(Map.getInstance().getMonster(position));
+        assertNull(Karta.getInstance().getMonster(position));
 
     }
 
@@ -60,12 +64,12 @@ class MapTest {
         HashSet<Item> expected = new HashSet<>();
         expected.add(item2);
 
-        Map.getInstance().addItem(pos,item1);
-        Map.getInstance().addItem(pos,item2);
+        Karta.getInstance().addItem(pos,item1);
+        Karta.getInstance().addItem(pos,item2);
 
-        Map.getInstance().removeItem(pos, item1);
+        Karta.getInstance().removeItem(pos, item1);
 
-        assertEquals(expected, Map.getInstance().getItems(pos));
+        assertEquals(expected, Karta.getInstance().getItems(pos));
 
 
     }
@@ -76,16 +80,16 @@ class MapTest {
         Monster m1 = new Monster("Orc",1,1,pos);
         Monster m2 = new Monster("Goblin",1,1,pos);
 
-        Map.getInstance().addMonster(pos,m1);
-        Map.getInstance().addMonster(pos,m2);
+        Karta.getInstance().addMonster(pos,m1);
+        Karta.getInstance().addMonster(pos,m2);
 
-        assertEquals(m1,Map.getInstance().getMonster(pos));
+        assertEquals(m1, Karta.getInstance().getMonster(pos));
 
     }
 
     @Test
     public void testGetMonsterNotExists(){
-        Monster m = Map.getInstance().getMonster(new Position(0,0));
+        Monster m = Karta.getInstance().getMonster(new Position(0,0));
         assert(m==null);
     }
     @Test
@@ -97,10 +101,10 @@ class MapTest {
         expected.add(item1);
         expected.add(item2);
 
-        Map.getInstance().addItem(pos,item1);
-        Map.getInstance().addItem(pos,item2);
+        Karta.getInstance().addItem(pos,item1);
+        Karta.getInstance().addItem(pos,item2);
 
-        assertEquals(expected,Map.getInstance().getItems(pos));
+        assertEquals(expected, Karta.getInstance().getItems(pos));
 
 
 
@@ -111,48 +115,49 @@ class MapTest {
     void testMapGetItemsEmpty(){
         Position pos = new Position(1,1);
 
-        assertNull(Map.getInstance().getItems(pos));
+        assertNull(Karta.getInstance().getItems(pos));
 
     }
 
     @Test
     public void testMapSetGetPlayer(){
         Player player = new Player("John", "Assassin");
-        Map.getInstance().setPlayer(player);
-        assert(player.equals(Map.getInstance().getPlayer()));
+        Karta.getInstance().setPlayer(player);
+        assert(player.equals(Karta.getInstance().getPlayer()));
     }
 
     @Test
     public void testMapCombatOneShot(){
         Player player = new Player("John", "Assassin");
-        Map.getInstance().setPlayer(player);
+        Karta.getInstance().setPlayer(player);
         Monster monster = new Monster("Zombie", 100, 10, new Position(0,0));
-        Map.getInstance().combat(monster);
-        assert(Map.getInstance().getPlayer().getHealth()==100);
+        Karta.getInstance().combat(monster);
+        assert(Karta.getInstance().getPlayer().getHealth()==100);
     }
     @Test
     public void testMapCombatNotOneShotButWin(){
         Player player = new Player("John", "Assassin");
-        Map.getInstance().setPlayer(player);
+        Karta.getInstance().setPlayer(player);
         Monster monster = new Monster("Zombie", 300, 10, new Position(0,0));
-        Map.getInstance().combat(monster);
-        assert(Map.getInstance().getPlayer().getHealth()==80);
+        Karta.getInstance().combat(monster);
+        assert(Karta.getInstance().getPlayer().getHealth()==80);
     }
     @Test
     public void testMapCombatMonsterWin(){
         Player player = new Player("John", "Assassin");
-        Map.getInstance().setPlayer(player);
+        Karta.getInstance().setPlayer(player);
         Monster monster = new Monster("Zombie", 300, 50, new Position(0,0));
-        Map.getInstance().combat(monster);
-        assert(!Map.getInstance().getPlayer().isAlive());
+        Karta.getInstance().combat(monster);
+        assert(!Karta.getInstance().getPlayer().isAlive());
     }
     @Test
     public void testMapCombatMonsterRemovedOnDeath(){
         Player player = new Player("John", "Assassin");
-        Map.getInstance().setPlayer(player);
+        Karta.getInstance().setPlayer(player);
         Monster monster = new Monster("Zombie", 300, 10, new Position(0,0));
-        Map.getInstance().combat(monster);
-        assert(Map.getInstance().getMonster(new Position(0,0))==null);
+        Karta.getInstance().combat(monster);
+        assert(Karta.getInstance().getMonster(new Position(0,0))==null);
     }
+
 
 }

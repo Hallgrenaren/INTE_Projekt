@@ -14,7 +14,7 @@ public class Monster {
     private boolean scared = false;
 
 
-    Monster(String name, int health, int damage, Position pos) {
+    public Monster(String name, int health, int damage, Position pos) {
         if (name == null)
             name = "Monster";
         if (health <= 0)
@@ -27,11 +27,11 @@ public class Monster {
         this.health = health;
         this.damage = damage;
         this.position = pos;
-        Map.getInstance().addMonster(pos, this);
+        Karta.getInstance().addMonster(pos, this);
 
     }
 
-    void takeDamage(int damage) {
+    public void takeDamage(int damage) {
         if (damage > 0) {
             this.health -= damage;
             if (health > 25 && health <= 50) {
@@ -45,8 +45,8 @@ public class Monster {
         }
     }
 
-    List<Item> getInventory() {
-        List<Item> copyOfInventory = new ArrayList<>(inventory);
+    List<Item> getInventory(){
+        ArrayList<Item> copyOfInventory = new ArrayList<>(inventory);
         return copyOfInventory;
     }
 
@@ -55,7 +55,7 @@ public class Monster {
         this.damage += item.getDamage();
     }
 
-    void addItem(Item item) {
+    public void addItem(Item item) {
         if (item != null) {
             inventory.add(item);
             updateStatsFromItems(item);
@@ -64,25 +64,25 @@ public class Monster {
 
     private void die() {
         //Remove from monster list
-        Map.getInstance().removeMonster(this.position);
+        Karta.getInstance().removeMonster(this.position);
 
         //Drop items
         for (Item item : this.inventory)
-            Map.getInstance().addItem(this.position, item);
+            Karta.getInstance().addItem(this.position, item);
 
         isAlive = false;
         //Gone from map?
     }
 
-    int getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    int getDamage() {
+    public int getDamage() {
         return damage;
     }
 
@@ -90,7 +90,7 @@ public class Monster {
         return isAlive;
     }
 
-    Position getPosition() {
+    public Position getPosition() {
         return position;
     }
 
@@ -111,11 +111,11 @@ public class Monster {
         return this.name.equals(m.name) && this.health == m.health && this.damage == m.damage && this.position.getX() == m.position.getX() && this.position.getY() == m.position.getY();
     }
 
-    boolean isEnraged() {
+    public boolean isEnraged() {
         return enraged;
     }
 
-    boolean isScared() {
+    public boolean isScared() {
         return scared;
     }
 }
